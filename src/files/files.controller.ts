@@ -30,4 +30,12 @@ export class FilesController {
   })) file: Express.Multer.File) {
     return file;
   }
+
+
+  @Get()
+  findAll() {
+    return this.filesService.findAll()
+  }
+ 
+
 }
