@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { CreateFileDto } from './dto/create-file.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FileEntity } from './entities/file.entity';
 import { Repository } from 'typeorm';
@@ -13,5 +12,14 @@ export class FilesService {
 
   findAll() {
     return this.repository.find()
+  }
+  create(file: Express.Multer.File, userId: number) {
+    return this.repository.save({
+      filename: file.filename,
+      originalName: file.originalname,
+      size: file.size,
+      mimetype: file.mimetype,
+      user: { id: userId },
+    });
   }
 }
