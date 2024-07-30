@@ -22,8 +22,9 @@ export class UsersService {
       id,
     });
   }
-
+  
   create(dto: CreateUserDto) {
+    console.log(dto)
     return this.repository.save(dto);
   }
 }

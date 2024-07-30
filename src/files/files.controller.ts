@@ -50,6 +50,7 @@ export class FilesController {
 
   @Get()
   findAll(@UserId() userId: number, @Query('type') FileType: FileType) {
+    console.log(FileType)
     return this.filesService.findAll(userId,FileType)
   }
   @Delete()
