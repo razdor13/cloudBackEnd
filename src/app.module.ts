@@ -17,19 +17,23 @@ import { AuthModule } from './auth/auth.module';
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         url: configService.get<string>('DATABASE_URL'),
-        ssl: {
-          rejectUnauthorized: false,
-        },
+        ssl: false,
         synchronize: true, // Встановіть на false у продакшені
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
       }),
       inject: [ConfigService],
     }),
+    
     UsersModule,
     FilesModule,
     AuthModule,
   ],
+  
   controllers: [AppController],
   providers: [AppService],
 })
+
+
+
 export class AppModule {}
+

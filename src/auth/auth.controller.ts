@@ -5,6 +5,7 @@ import { CreateUserDto } from '../users/dto/create-user.dto';
 import { AuthService } from './auth.service';
 import { UserEntity } from '../users/entities/user.entity';
 import { LocalAuthGuard } from './guards/local.guard';
+
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
